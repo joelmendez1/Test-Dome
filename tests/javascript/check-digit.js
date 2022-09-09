@@ -3,12 +3,7 @@ function createCheckDigit(membershipId) {
   let total = 0;
   [...membershipId].forEach((num) => (total += Number(num)));
 
-  if (total > 9) {
-    let argument = String(total);
-    return createCheckDigit(argument);
-  } else {
-    return total;
-  }
+  return total > 9 ? createCheckDigit(String(total)) : total;
 }
 
 console.log(createCheckDigit("5555"));
